@@ -10,3 +10,5 @@
   - Delete post.
   - Pagination.
   - Localization.
+
+![Demo](blog.gif)
