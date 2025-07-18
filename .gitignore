@@ -1,4 +1,4 @@
 .idea/
 **/.idea/
-.uploads/
-.upload/
+**/uploads/
+**/upload/
