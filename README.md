@@ -119,3 +119,13 @@
 ## Week 11
 
 - [E-commerce project](https://github.com/ZeinaZayed4/route-backend-diploma-study/tree/main/Week%2011)
+
+## Week 12
+### [Session 1](https://github.com/ZeinaZayed4/route-backend-diploma-study/tree/main/Week%2012/Session%201)
+- OOP definition.
+- Constructor and destructor.
+- Inheritance.
+- Overriding.
+- Access modifiers.
+- Abstract class.
+- Overloading.
