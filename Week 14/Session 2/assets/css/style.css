@@ -1,0 +1,168 @@
+body {
+   background: #f8f9fa;
+   min-height: 100vh;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   padding: 20px 0;
+}
+
+.app-title {
+   color: #333;
+   font-weight: 700;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.add-form {
+   background: rgba(255, 255, 255, 0.95);
+   border-radius: 15px;
+   padding: 2rem;
+   margin-bottom: 2rem;
+   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+   border-radius: 10px;
+   padding: 12px 16px;
+   border: 1px solid #ddd;
+}
+
+.btn-primary {
+   background: #495057;
+   border: none;
+   border-radius: 10px;
+   padding: 12px 24px;
+   font-weight: 600;
+}
+
+.btn-primary:hover {
+   background: #343a40;
+}
+
+.column-header {
+   color: #495057;
+   font-weight: 600;
+   margin-bottom: 1.5rem;
+   text-align: center;
+   font-size: 1.3rem;
+}
+
+.todo-column {
+   min-height: 400px;
+   padding: 1rem;
+}
+
+.todo-item {
+   background: white;
+   border-radius: 10px;
+   padding: 1.2rem;
+   margin-bottom: 1rem;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   position: relative;
+}
+
+.todo-item.doing {
+   border-left: 4px solid #6c757d;
+}
+
+.todo-item.done {
+   border-left: 4px solid #adb5bd;
+   background: #f8f9fa;
+}
+
+.todo-item:not(.doing):not(.done) {
+   border-left: 4px solid #495057;
+}
+
+.todo-title {
+   font-weight: 600;
+   color: #333;
+   margin-bottom: 0.5rem;
+}
+
+.todo-date {
+   color: #666;
+   font-size: 0.9rem;
+   margin-bottom: 1rem;
+}
+
+.btn-group {
+   display: flex;
+   gap: 8px;
+   justify-content: space-between;
+}
+
+.btn-sm {
+   padding: 6px 12px;
+   border-radius: 6px;
+   font-size: 0.85rem;
+   text-decoration: none;
+   font-weight: 500;
+}
+
+.btn-info {
+   background: #6c757d;
+   color: white;
+   border: none;
+}
+
+.btn-success {
+   background: #495057;
+   color: white;
+   border: none;
+}
+
+.btn-info:hover {
+   background: #5a6268;
+   color: white;
+}
+
+.btn-success:hover {
+   background: #343a40;
+   color: white;
+}
+
+.empty-state {
+   text-align: center;
+   padding: 2rem;
+   background: #e9ecef;
+   border-radius: 10px;
+   color: #6c757d;
+   font-style: italic;
+}
+
+.remove-btn {
+   position: absolute;
+   top: 8px;
+   right: 8px;
+   background: #6c757d;
+   color: white;
+   border: none;
+   border-radius: 50%;
+   width: 24px;
+   height: 24px;
+   font-size: 12px;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.remove-btn:hover {
+   background: #5a6268;
+   color: white;
+}
+
+@media (max-width: 768px) {
+   .todo-column {
+      margin-bottom: 2rem;
+   }
+
+   .btn-group {
+      flex-direction: column;
+      gap: 5px;
+   }
+
+   .add-form {
+      margin: 1rem;
+   }
+}
