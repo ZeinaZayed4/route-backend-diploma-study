@@ -1,0 +1,12 @@
+{
+    "name": "zeina/mvc",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "MVC/"
+        }
+    },
+    "require": {
+      "ext-mysqli": "*"
+    }
+}
