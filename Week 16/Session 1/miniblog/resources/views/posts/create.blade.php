@@ -3,7 +3,7 @@
         Create Post
     </x-slot:heading>
 
-    <form method="post" action="/posts">
+    <form method="post" action="/posts" enctype="multipart/form-data">
         @csrf
 
         <div class="space-y-12">
@@ -21,9 +21,18 @@
                     <x-form-field>
                         <x-form-label for="body">Body</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="textarea" id="body" name="body" placeholder="" />
+                            <x-form-input type="textarea" id="body" name="body" placeholder="Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama." />
 
                             <x-form-error name="body" />
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="image">Image</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input type="file" id="image" name="image" />
+
+                            <x-form-error name="image" />
                         </div>
                     </x-form-field>
                 </div>

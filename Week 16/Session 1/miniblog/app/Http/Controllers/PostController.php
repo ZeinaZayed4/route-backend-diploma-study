@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(3);
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -17,18 +19,18 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        request()->validate([
+        $attributes = $request->validate([
             'title' => ['required', 'string', 'min:8'],
             'body' => ['required', 'string'],
+            'image' => ['required', 'image', 'mimes:png,jpg'],
         ]);
 
-        Post::create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'user_id' => 1,
-        ]);
+        $attributes['image'] = Storage::putFile('posts', $attributes['image']);
+        $attributes['user_id'] = 1;
+
+        Post::create($attributes);
 
         return redirect('/posts')->with('success', 'Post Created Successfully!');
     }
@@ -43,17 +45,23 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Post $post)
+    public function update(Request $request, Post $post)
     {
-        request()->validate([
+        $attributes = $request->validate([
             'title' => ['required', 'string', 'min:8'],
             'body' => ['required', 'string'],
+            'image' => ['required', 'image', 'mimes:png,jpg']
         ]);
 
-        $post->update([
-            'title' => request('title'),
-            'body' => request('body'),
-        ]);
+        if ($request->hasFile('image')) {
+            if ($post->image) {
+                Storage::disk('public')->delete($post->image);
+            }
+
+            $attributes['image'] = Storage::putFile('posts', $attributes['image']);
+        }
+
+        $post->update($attributes);
 
         return redirect('/posts')->with('success', 'Post Updated Successfully!');
     }
@@ -61,6 +69,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        Storage::delete($post->image);
 
         return redirect('/posts')->with('success', 'Post Deleted Successfully!');
     }

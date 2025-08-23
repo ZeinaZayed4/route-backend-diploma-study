@@ -3,7 +3,7 @@
         Edit Post: {{ $post->title }}
     </x-slot:heading>
 
-    <form method="post" action="/posts/{{ $post->id }}">
+    <form method="post" action="/posts/{{ $post->id }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -25,6 +25,23 @@
                             <x-form-input type="textarea" id="body" name="body">{{ $post->body }}</x-form-input>
 
                             <x-form-error name="body" />
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="image">New Image</x-form-label>
+                        <div class="mt-2 flex items-start gap-4">
+                            <div class="flex-1">
+                                <x-form-input type="file" id="image" name="image" />
+
+                                <x-form-error name="image" />
+                            </div>
+
+                            <div class="flex-shrink-0">
+                                <img src="{{ asset("storage/$post->image") }}"
+                                     alt="Current image"
+                                     class="w-20 h-20 object-cover rounded border border-gray-300">
+                            </div>
                         </div>
                     </x-form-field>
                 </div>

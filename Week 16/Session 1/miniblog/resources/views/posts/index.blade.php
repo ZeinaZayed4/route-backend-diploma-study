@@ -18,6 +18,9 @@
                                 Body
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Image
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Actions
                             </th>
                         </tr>
@@ -31,7 +34,10 @@
                                 <td class="px-6 py-4">
                                     {{ $post->body }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="px-4 py-4">
+                                    <img src="{{ asset("storage/$post->image") }}" alt="{{ $post->title }}" class="w-10/12 h-20">
+                                </td>
+                                <td class="px-4 py-4">
                                     <div class="flex mx-5">
                                         <x-button href="posts/{{ $post->id }}" class="mx-2">Show</x-button>
 
@@ -47,6 +53,9 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-5">
+                {{ $posts->links() }}
             </div>
         </div>
     </div>

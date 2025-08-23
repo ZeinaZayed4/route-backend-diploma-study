@@ -3,10 +3,12 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::post('/posts', [PostController::class, 'store']);
-Route::get('/posts/{post}', [PostController::class, 'show']);
-Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
-Route::patch('/posts/{post}', [PostController::class, 'update']);
-Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+Route::controller(PostController::class)->group(function () {
+    Route::get('/posts', 'index');
+    Route::get('/posts/create', 'create');
+    Route::post('/posts', 'store');
+    Route::get('/posts/{post}', 'show');
+    Route::get('/posts/{post}/edit', 'edit');
+    Route::patch('/posts/{post}', 'update');
+    Route::delete('/posts/{post}', 'destroy');
+});
