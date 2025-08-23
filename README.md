@@ -30,3 +30,4 @@
 | **15** | 1       | MVC                   | Model • View • Controller                                                                 | [🔗](https://github.com/ZeinaZayed4/route-backend-diploma-study/tree/main/Week%2015/Session%201) |
 |        | 2       | Laravel               | Installation • Introduction                                                               | -                                                                                                |
 | **16** | 1       | Laravel               | Mini-Blog Project                                                                         | [🔗](https://github.com/ZeinaZayed4/route-backend-diploma-study/tree/main/Week%2016/Session%201) |
+|        | 2       | Laravel               | Complete Mini-Blog Project                                                                | [🔗](https://github.com/ZeinaZayed4/route-backend-diploma-study/tree/main/Week%2016/Session%201) |
